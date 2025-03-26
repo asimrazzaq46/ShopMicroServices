@@ -17,7 +17,7 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
             .NotEmpty().WithMessage("Name Cannot be Empty")
             .Length(2,150).WithMessage("Name must be between 2 and 150 charectes");
 
-        RuleFor(x => x.Price).LessThan(0).WithMessage("Price must be greater than 0");
+        RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater than 0");
     }
 }
 public class UpdateProductHandler(IDocumentSession session) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
